@@ -8,6 +8,7 @@ bin/
 obj/
 .generated/
 .vs/
+.vscode/
 .DS_Store
 
 *.translation
