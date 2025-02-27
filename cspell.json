@@ -1,7 +1,5 @@
 {
-  "files": [
-    "**/*.*"
-  ],
+  "files": ["**/*.*"],
   "ignorePaths": [
     "**/*.tscn",
     "**/*.import",
@@ -28,6 +26,7 @@
     "CYGWIN",
     "dtls",
     "endregion",
+    "enduml",
     "fabrik",
     "framebuffer",
     "globaltool",
@@ -70,6 +69,7 @@
     "reporttypes",
     "Shouldly",
     "spir",
+    "startuml",
     "subfolders",
     "targetargs",
     "targetdir",
