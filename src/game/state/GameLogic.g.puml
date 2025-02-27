@@ -1,15 +1,15 @@
 @startuml GameLogic
 state "GameLogic State" as Cs001_GameLogic_State {
-  state "RestartingGame" as Cs001_GameLogic_State_RestartingGame
+  state "Lost" as Cs001_GameLogic_State_Lost
+  state "MenuBackdrop" as Cs001_GameLogic_State_MenuBackdrop
   state "Paused" as Cs001_GameLogic_State_Paused {
     state "Saving" as Cs001_GameLogic_State_Saving
   }
-  state "Won" as Cs001_GameLogic_State_Won
-  state "Lost" as Cs001_GameLogic_State_Lost
-  state "Resuming" as Cs001_GameLogic_State_Resuming
-  state "MenuBackdrop" as Cs001_GameLogic_State_MenuBackdrop
   state "Playing" as Cs001_GameLogic_State_Playing
   state "Quit" as Cs001_GameLogic_State_Quit
+  state "RestartingGame" as Cs001_GameLogic_State_RestartingGame
+  state "Resuming" as Cs001_GameLogic_State_Resuming
+  state "Won" as Cs001_GameLogic_State_Won
 }
 
 Cs001_GameLogic_State_Lost --> Cs001_GameLogic_State_Quit : GoToMainMenu

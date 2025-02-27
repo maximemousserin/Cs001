@@ -1,6 +1,7 @@
 namespace Cs001;
 
 using Chickensoft.AutoInject;
+using Chickensoft.GodotNodeInterfaces;
 using Chickensoft.Introspection;
 using Godot;
 

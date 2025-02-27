@@ -34,6 +34,7 @@
     "gltf",
     "godotengine",
     "hmac",
+    "Instantiator",
     "issuecomment",
     "joypad",
     "kisak",
@@ -42,8 +43,10 @@
     "lightmapper",
     "lihop",
     "linecoverage",
+    "Maxime",
     "methodcoverage",
     "missingall",
+    "MOUSSERIN",
     "msbuild",
     "MSYS",
     "mult",
@@ -83,8 +86,6 @@
     "voxel",
     "vulkan",
     "XRIP",
-    "Xunit",
-    "Maxime",
-    "MOUSSERIN"
+    "Xunit"
   ]
 }

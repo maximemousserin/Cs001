@@ -1,5 +1,6 @@
 {
   "[csharp]": {
+    "editor.defaultFormatter": "ms-dotnettools.csharp",
     "editor.codeActionsOnSave": {
       "source.addMissingImports": "explicit",
       "source.fixAll": "explicit",
@@ -135,9 +136,7 @@
     // Allow html in markdown.
     "MD033": false
   },
-  "markdownlint.ignore": [
-    "**/LICENSE"
-  ],
+  "markdownlint.ignore": ["**/LICENSE"],
   "omnisharp.enableEditorConfigSupport": true,
   "omnisharp.enableMsBuildLoadProjectsOnDemand": false,
   "omnisharp.enableRoslynAnalyzers": true,
@@ -162,5 +161,6 @@
       "source": "PowerShell"
     }
   },
-  "dotnet.formatting.organizeImportsOnFormat": true
+  "dotnet.formatting.organizeImportsOnFormat": true,
+  "editor.defaultFormatter": "esbenp.prettier-vscode"
 }

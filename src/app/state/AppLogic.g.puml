@@ -1,10 +1,10 @@
 @startuml AppLogic
 state "AppLogic State" as Cs001_AppLogic_State {
-  state "SplashScreen" as Cs001_AppLogic_State_SplashScreen
-  state "MainMenu" as Cs001_AppLogic_State_MainMenu
-  state "LeavingGame" as Cs001_AppLogic_State_LeavingGame
   state "InGame" as Cs001_AppLogic_State_InGame
+  state "LeavingGame" as Cs001_AppLogic_State_LeavingGame
   state "LeavingMenu" as Cs001_AppLogic_State_LeavingMenu
+  state "MainMenu" as Cs001_AppLogic_State_MainMenu
+  state "SplashScreen" as Cs001_AppLogic_State_SplashScreen
 }
 
 Cs001_AppLogic_State_InGame --> Cs001_AppLogic_State_LeavingGame : EndGame

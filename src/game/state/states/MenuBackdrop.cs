@@ -19,10 +19,7 @@ public partial class GameLogic {
 
       public Transition On(in Input.Start input) => To<Playing>();
 
-      public Transition On(in Input.Initialize input) {
-        Get<IGameRepo>().SetNumCoinsAtStart(input.NumCoinsInWorld);
-        return ToSelf();
-      }
+      public Transition On(in Input.Initialize input) => ToSelf();
     }
   }
 }

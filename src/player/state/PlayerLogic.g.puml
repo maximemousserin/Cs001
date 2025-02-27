@@ -1,7 +1,7 @@
 @startuml PlayerLogic
 state "PlayerLogic State" as Cs001_PlayerLogic_State {
-  state "Dead" as Cs001_PlayerLogic_State_Dead
   state "Alive" as Cs001_PlayerLogic_State_Alive
+  state "Dead" as Cs001_PlayerLogic_State_Dead
   state "Disabled" as Cs001_PlayerLogic_State_Disabled
 }
 Cs001_PlayerLogic_State_Disabled : OnEnter → Idle

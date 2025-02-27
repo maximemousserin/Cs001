@@ -11,10 +11,7 @@ public partial class AppLogic {
         this.OnEnter(() => Output(new Output.FadeToBlack()));
       }
 
-      public Transition On(in Input.FadeOutFinished input) =>
-        Get<Data>().ShouldLoadExistingGame
-          ? To<LoadingSaveFile>()
-          : To<InGame>();
+      public Transition On(in Input.FadeOutFinished input) => To<InGame>();
     }
   }
 }
