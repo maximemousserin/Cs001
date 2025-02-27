@@ -1,0 +1,27 @@
+@startuml AppLogic
+state "AppLogic State" as Cs001_AppLogic_State {
+  state "SplashScreen" as Cs001_AppLogic_State_SplashScreen
+  state "MainMenu" as Cs001_AppLogic_State_MainMenu
+  state "LeavingGame" as Cs001_AppLogic_State_LeavingGame
+  state "InGame" as Cs001_AppLogic_State_InGame
+  state "LeavingMenu" as Cs001_AppLogic_State_LeavingMenu
+}
+
+Cs001_AppLogic_State_InGame --> Cs001_AppLogic_State_LeavingGame : EndGame
+Cs001_AppLogic_State_LeavingGame --> Cs001_AppLogic_State_InGame : FadeOutFinished
+Cs001_AppLogic_State_LeavingGame --> Cs001_AppLogic_State_MainMenu : FadeOutFinished
+Cs001_AppLogic_State_LeavingMenu --> Cs001_AppLogic_State_InGame : FadeOutFinished
+Cs001_AppLogic_State_MainMenu --> Cs001_AppLogic_State_LeavingMenu : LoadGame
+Cs001_AppLogic_State_MainMenu --> Cs001_AppLogic_State_LeavingMenu : NewGame
+Cs001_AppLogic_State_SplashScreen --> Cs001_AppLogic_State_MainMenu : FadeOutFinished
+
+Cs001_AppLogic_State_InGame : OnEnter → ShowGame
+Cs001_AppLogic_State_InGame : OnExit → HideGame
+Cs001_AppLogic_State_LeavingGame : OnFadeOutFinished → RemoveExistingGame, SetupGameScene
+Cs001_AppLogic_State_LeavingMenu : OnEnter → FadeToBlack
+Cs001_AppLogic_State_MainMenu : OnEnter → SetupGameScene, ShowMainMenu
+Cs001_AppLogic_State_SplashScreen : OnEnter → ShowSplashScreen
+Cs001_AppLogic_State_SplashScreen : OnSplashScreenSkipped() → HideSplashScreen
+
+[*] --> Cs001_AppLogic_State_SplashScreen
+@enduml

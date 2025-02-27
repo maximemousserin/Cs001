@@ -1,0 +1,43 @@
+@startuml GameLogic
+state "GameLogic State" as Cs001_GameLogic_State {
+  state "RestartingGame" as Cs001_GameLogic_State_RestartingGame
+  state "Paused" as Cs001_GameLogic_State_Paused {
+    state "Saving" as Cs001_GameLogic_State_Saving
+  }
+  state "Won" as Cs001_GameLogic_State_Won
+  state "Lost" as Cs001_GameLogic_State_Lost
+  state "Resuming" as Cs001_GameLogic_State_Resuming
+  state "MenuBackdrop" as Cs001_GameLogic_State_MenuBackdrop
+  state "Playing" as Cs001_GameLogic_State_Playing
+  state "Quit" as Cs001_GameLogic_State_Quit
+}
+
+Cs001_GameLogic_State_Lost --> Cs001_GameLogic_State_Quit : GoToMainMenu
+Cs001_GameLogic_State_Lost --> Cs001_GameLogic_State_RestartingGame : Start
+Cs001_GameLogic_State_MenuBackdrop --> Cs001_GameLogic_State_MenuBackdrop : Initialize
+Cs001_GameLogic_State_MenuBackdrop --> Cs001_GameLogic_State_Playing : Start
+Cs001_GameLogic_State_Paused --> Cs001_GameLogic_State_Quit : GoToMainMenu
+Cs001_GameLogic_State_Paused --> Cs001_GameLogic_State_Resuming : PauseButtonPressed
+Cs001_GameLogic_State_Paused --> Cs001_GameLogic_State_Saving : SaveRequested
+Cs001_GameLogic_State_Playing --> Cs001_GameLogic_State_Lost : EndGame
+Cs001_GameLogic_State_Playing --> Cs001_GameLogic_State_Paused : PauseButtonPressed
+Cs001_GameLogic_State_Playing --> Cs001_GameLogic_State_Quit : EndGame
+Cs001_GameLogic_State_Playing --> Cs001_GameLogic_State_Won : EndGame
+Cs001_GameLogic_State_Resuming --> Cs001_GameLogic_State_Playing : PauseMenuTransitioned
+Cs001_GameLogic_State_Saving --> Cs001_GameLogic_State_Paused : SaveCompleted
+Cs001_GameLogic_State_Saving --> Cs001_GameLogic_State_Saving : PauseButtonPressed
+Cs001_GameLogic_State_Won --> Cs001_GameLogic_State_Won : GoToMainMenu
+
+Cs001_GameLogic_State : OnIsMouseCaptured() → CaptureMouse
+Cs001_GameLogic_State : OnIsPaused() → SetPauseMode
+Cs001_GameLogic_State_Lost : OnEnter → ShowLostScreen
+Cs001_GameLogic_State_Paused : OnEnter → ShowPauseMenu
+Cs001_GameLogic_State_Paused : OnExit → ExitPauseMenu
+Cs001_GameLogic_State_Playing : OnEnter → StartGame
+Cs001_GameLogic_State_Resuming : OnExit → HidePauseMenu
+Cs001_GameLogic_State_Saving : OnEnter → ShowPauseSaveOverlay, StartSaving
+Cs001_GameLogic_State_Saving : OnExit → HidePauseSaveOverlay
+Cs001_GameLogic_State_Won : OnEnter → ShowWonScreen
+
+[*] --> Cs001_GameLogic_State_MenuBackdrop
+@enduml

@@ -29,7 +29,7 @@ public partial class Main : Node2D {
 #endif
 
     // If we don't need to run tests, we can just switch to the game scene.
-    CallDeferred("RunScene");
+    CallDeferred("StartApp");
   }
 
 #if DEBUG
@@ -37,6 +37,6 @@ public partial class Main : Node2D {
     => _ = GoTest.RunTests(Assembly.GetExecutingAssembly(), this, Environment);
 #endif
 
-  private void RunScene()
-    => GetTree().ChangeSceneToFile("res://src/Game.tscn");
+  private void StartApp()
+    => GetTree().ChangeSceneToFile("res://src/app/App.tscn");
 }
