@@ -5,7 +5,6 @@ public partial class AppLogic {
     public readonly record struct FadeInFinished;
     public readonly record struct FadeOutFinished;
     public readonly record struct NewGame;
-    public readonly record struct LoadGame;
     public readonly record struct EndGame(PostGameAction PostGameAction);
   }
 }

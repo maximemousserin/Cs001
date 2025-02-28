@@ -7,7 +7,7 @@ public partial class AppLogic {
   public partial record State {
     [Meta]
     public partial record MainMenu : State,
-    IGet<Input.NewGame>, IGet<Input.LoadGame> {
+    IGet<Input.NewGame> {
       public MainMenu() {
         this.OnEnter(
           () => {
@@ -23,12 +23,6 @@ public partial class AppLogic {
       }
 
       public Transition On(in Input.NewGame input) => To<LeavingMenu>();
-
-      public Transition On(in Input.LoadGame input) {
-        Get<Data>().ShouldLoadExistingGame = true;
-
-        return To<LeavingMenu>();
-      }
     }
   }
 }

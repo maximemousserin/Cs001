@@ -1,5 +1,6 @@
 namespace Cs001;
 
+using System.Diagnostics;
 using Chickensoft.AutoInject;
 using Chickensoft.GodotNodeInterfaces;
 using Chickensoft.Introspection;
@@ -56,7 +57,6 @@ public partial class App : CanvasLayer, IApp {
     // Listen for various menu signals. Each of these just translate to an input
     // for the overall app's state machine.
     Menu.NewGame += OnNewGame;
-    Menu.LoadGame += OnLoadGame;
 
     AnimationPlayer.AnimationFinished += OnAnimationFinished;
 
@@ -72,18 +72,15 @@ public partial class App : CanvasLayer, IApp {
         BlankScreen.Hide();
         Splash.Show();
       })
-      .Handle((in AppLogic.Output.HideSplashScreen _) => {
-        BlankScreen.Show();
-        FadeToBlack();
-      })
-      .Handle((in AppLogic.Output.RemoveExistingGame _) => {
-        Game.QueueFree();
-        Game = default!;
-      })
+        .Handle((in AppLogic.Output.HideSplashScreen _) => {
+          BlankScreen.Show();
+          FadeToBlack();
+          GD.Print("Hiding splash screen");
+        })
       .Handle((in AppLogic.Output.SetupGameScene _) => {
         Game = Instantiator.LoadAndInstantiate<Game>(GAME_SCENE_PATH);
-
         Instantiator.SceneTree.Paused = false;
+        GD.Print("Setting up game scene");
       })
       .Handle((in AppLogic.Output.ShowMainMenu _) => {
         // Load everything while we're showing a black screen, then fade in.
@@ -92,11 +89,14 @@ public partial class App : CanvasLayer, IApp {
         Game.Show();
 
         FadeInFromBlack();
+
+        GD.Print("Showing main menu");
       })
       .Handle((in AppLogic.Output.FadeToBlack _) => FadeToBlack())
       .Handle((in AppLogic.Output.ShowGame _) => {
         HideMenus();
         FadeInFromBlack();
+        GD.Print("Showing game");
       })
       .Handle((in AppLogic.Output.HideGame _) => FadeToBlack());
 
@@ -105,8 +105,6 @@ public partial class App : CanvasLayer, IApp {
   }
 
   public void OnNewGame() => AppLogic.Input(new AppLogic.Input.NewGame());
-
-  public void OnLoadGame() => AppLogic.Input(new AppLogic.Input.LoadGame());
 
   public void OnAnimationFinished(StringName animation) {
     // There's only two animations :)

@@ -1,6 +1,6 @@
 [gd_scene load_steps=8 format=3 uid="uid://cwsfvhqinjpy4"]
 
-[ext_resource type="Script" path="res://src/menu/Menu.cs" id="1_or2kc"]
+[ext_resource type="Script" uid="uid://dqvem0o20kgp3" path="res://src/menu/Menu.cs" id="1_or2kc"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_aq8ij"]
 bg_color = Color(1, 1, 1, 0.219608)
@@ -91,13 +91,6 @@ custom_minimum_size = Vector2(2.08165e-12, 64)
 layout_mode = 2
 size_flags_horizontal = 3
 text = "New Game"
-
-[node name="LoadGameButton" type="Button" parent="MarginContainer/HBoxContainer/VBoxContainer3/VBoxContainer2"]
-unique_name_in_owner = true
-custom_minimum_size = Vector2(2.08165e-12, 64)
-layout_mode = 2
-size_flags_horizontal = 3
-text = "Load Game"
 
 [node name="MarginContainer" type="MarginContainer" parent="MarginContainer/HBoxContainer/VBoxContainer3/VBoxContainer2"]
 layout_mode = 2

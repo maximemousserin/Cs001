@@ -217,14 +217,6 @@ public class AppTest : TestClass {
   }
 
   [Test]
-  public void OnLoadGameWorks() {
-    _logic.Reset();
-    _logic.Setup(logic => logic.Input(It.IsAny<AppLogic.Input.LoadGame>()));
-    _app.OnLoadGame();
-    _logic.VerifyAll();
-  }
-
-  [Test]
   public void OnAnimationFinishedRespondsToFadeInFinished() {
     _logic.Reset();
     _logic

@@ -11,7 +11,6 @@ Cs001_AppLogic_State_InGame --> Cs001_AppLogic_State_LeavingGame : EndGame
 Cs001_AppLogic_State_LeavingGame --> Cs001_AppLogic_State_InGame : FadeOutFinished
 Cs001_AppLogic_State_LeavingGame --> Cs001_AppLogic_State_MainMenu : FadeOutFinished
 Cs001_AppLogic_State_LeavingMenu --> Cs001_AppLogic_State_InGame : FadeOutFinished
-Cs001_AppLogic_State_MainMenu --> Cs001_AppLogic_State_LeavingMenu : LoadGame
 Cs001_AppLogic_State_MainMenu --> Cs001_AppLogic_State_LeavingMenu : NewGame
 Cs001_AppLogic_State_SplashScreen --> Cs001_AppLogic_State_MainMenu : FadeOutFinished
 

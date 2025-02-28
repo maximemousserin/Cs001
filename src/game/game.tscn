@@ -1,3 +1,11 @@
-[gd_scene format=3 uid="uid://df3qti7f3canj"]
+[gd_scene load_steps=10 format=3 uid="uid://cywpu6lxdjhuu"]
+
+[ext_resource type="Script" path="res://src/game/Game.cs" id="1_17mmo"]
 
 [node name="Game" type="Node2D"]
+process_mode = 3
+script = ExtResource("1_17mmo")
+
+[node name="PauseContainer" type="Node2D" parent="."]
+unique_name_in_owner = true
+process_mode = 1
